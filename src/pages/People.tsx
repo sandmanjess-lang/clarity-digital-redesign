@@ -15,7 +15,7 @@ const team = [
     linkedin: "https://www.linkedin.com/in/don-millar-03876412/",
     email: "don@claritygroup.co.za",
     bio: [
-      "Don founded Clarity Group to provide independent corporate finance advice to unlisted corporates and entrepreneurs. He has over 20 years of experience in investment banking and corporate finance.",
+      "Don founded Clarity Group to provide independent corporate finance advice to unlisted corporates and entrepreneurs. He has over 25 years of experience in investment banking and corporate finance.",
       "Prior to founding Clarity, Don held senior positions at leading investment banks including Rand Merchant Bank and BoE (now part of Nedbank Capital), where he was involved in numerous M&A, capital raising, and advisory transactions.",
       "Don holds a B.Com (Hons) and CA(SA) qualification, and brings deep sector expertise across industrials, services, healthcare, and technology.",
     ],
