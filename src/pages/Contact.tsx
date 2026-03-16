@@ -13,11 +13,13 @@ const contactDetails = [
     icon: Phone,
     label: "Telephone",
     value: "+27 (0) 11 268 6744",
+    href: "tel:+27112686744",
   },
   {
     icon: Mail,
     label: "Email",
     value: "info@claritygroup.co.za",
+    href: "mailto:info@claritygroup.co.za",
   },
   {
     icon: Clock,
@@ -70,7 +72,13 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground mb-1">{item.label}</p>
-                    <p className="text-foreground font-medium whitespace-pre-line">{item.value}</p>
+                    {item.href ? (
+                      <a href={item.href} className="text-foreground font-medium whitespace-pre-line hover:text-accent transition-colors">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-foreground font-medium whitespace-pre-line">{item.value}</p>
+                    )}
                   </div>
                 </motion.div>
               ))}
