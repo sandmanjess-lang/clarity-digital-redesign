@@ -70,7 +70,13 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground mb-1">{item.label}</p>
-                    <p className="text-foreground font-medium whitespace-pre-line">{item.value}</p>
+                    {item.href ? (
+                      <a href={item.href} className="text-foreground font-medium whitespace-pre-line hover:text-accent transition-colors">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-foreground font-medium whitespace-pre-line">{item.value}</p>
+                    )}
                   </div>
                 </motion.div>
               ))}
