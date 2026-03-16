@@ -20,19 +20,6 @@ const team = [
       "Don holds a B.Com (Hons) and CA(SA) qualification, and brings deep sector expertise across industrials, services, healthcare, and technology.",
     ],
   },
-  {
-    name: "Valecia van Rensburg",
-    role: "Director",
-    initials: "VR",
-    photo: valeciaPhoto,
-    linkedin: "https://www.linkedin.com/in/valecia-van-rensburg-35383621/",
-    email: "valecia@claritygroup.co.za",
-    bio: [
-      "Valecia joined Clarity Group bringing extensive experience in corporate finance and transaction advisory. She plays a key role in managing client engagements and transaction execution.",
-      "Her background includes experience in financial analysis, deal structuring, and project management across a range of corporate finance transactions including M&A, BEE deals, and valuations.",
-      "Valecia holds a B.Com (Hons) in Financial Management and has completed her articles at a leading audit firm before transitioning to corporate finance advisory.",
-    ],
-  },
 ];
 
 const People = () => {
