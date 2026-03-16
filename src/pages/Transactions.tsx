@@ -3,18 +3,24 @@ import { ArrowUpRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import { fadeUp } from "@/lib/animations";
 
-const transactions = [
-  "Advised on the disposal of a controlling interest in a national facilities management company",
-  "Advised on the acquisition of a majority interest in a national cleaning services company",
-  "Advised on the disposal of a minority interest in a national security company",
-  "Advised on the BEE transaction for a national logistics company",
-  "Advised on the acquisition of a majority interest in an IT services company",
-  "Advised on the capital raising for a property development company",
-  "Advised on the disposal of a controlling interest in a national healthcare company",
-  "Advised on the management buy-out of a national services company",
-  "Advised on the acquisition of a majority interest in a financial services company",
-  "Advised on the disposal of a minority interest in a national food services company",
-  "Advised on the valuation of a national retail company for dispute resolution purposes",
+interface Transaction {
+  text: string;
+  link?: { label: string; url: string };
+}
+
+const transactions: Transaction[] = [
+  { text: "Advised on the disposal of a controlling interest in a national facilities management company" },
+  { text: "Advised on the acquisition of a majority interest in a national cleaning services company" },
+  { text: "Advised on the disposal of a minority interest in a national security company" },
+  { text: "Advised on the BEE transaction for a national logistics company" },
+  { text: "Advised on the acquisition of a majority interest in an IT services company" },
+  { text: "Advised on the capital raising for a property development company" },
+  { text: "Advised on the disposal of a controlling interest in a national healthcare company" },
+  { text: "Advised on the management buy-out of a national services company" },
+  { text: "Advised on the acquisition of a majority interest in a financial services company" },
+  { text: "Advised on the disposal of a minority interest in a national food services company" },
+  { text: "Advised on the valuation of a national retail company for dispute resolution purposes" },
+  { text: "Completed investment in ", link: { label: "Seakor", url: "https://seakor.co.za/" } },
 ];
 
 const Transactions = () => {
