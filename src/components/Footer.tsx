@@ -22,7 +22,10 @@ const Footer = () => {
           </nav>
 
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Clarity Group. All rights reserved.
+            © {new Date().getFullYear()} Clarity Group. All rights reserved. Design by{" "}
+            <a href="https://www.in-detail.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors underline">
+              In-Detail
+            </a>
           </p>
         </div>
       </div>
