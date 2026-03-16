@@ -15,22 +15,9 @@ const team = [
     linkedin: "https://www.linkedin.com/in/don-millar-03876412/",
     email: "don@claritygroup.co.za",
     bio: [
-      "Don founded Clarity Group to provide independent corporate finance advice to unlisted corporates and entrepreneurs. He has over 20 years of experience in investment banking and corporate finance.",
+      "Don founded Clarity Group to provide independent corporate finance advice to unlisted corporates and entrepreneurs. He has over 25 years of experience in investment banking and corporate finance.",
       "Prior to founding Clarity, Don held senior positions at leading investment banks including Rand Merchant Bank and BoE (now part of Nedbank Capital), where he was involved in numerous M&A, capital raising, and advisory transactions.",
       "Don holds a B.Com (Hons) and CA(SA) qualification, and brings deep sector expertise across industrials, services, healthcare, and technology.",
-    ],
-  },
-  {
-    name: "Valecia van Rensburg",
-    role: "Director",
-    initials: "VR",
-    photo: valeciaPhoto,
-    linkedin: "https://www.linkedin.com/in/valecia-van-rensburg-35383621/",
-    email: "valecia@claritygroup.co.za",
-    bio: [
-      "Valecia joined Clarity Group bringing extensive experience in corporate finance and transaction advisory. She plays a key role in managing client engagements and transaction execution.",
-      "Her background includes experience in financial analysis, deal structuring, and project management across a range of corporate finance transactions including M&A, BEE deals, and valuations.",
-      "Valecia holds a B.Com (Hons) in Financial Management and has completed her articles at a leading audit firm before transitioning to corporate finance advisory.",
     ],
   },
 ];
