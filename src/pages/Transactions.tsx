@@ -64,7 +64,15 @@ const Transactions = () => {
                 <div className="flex-shrink-0 mt-1">
                   <div className="w-3 h-3 rounded-full gradient-accent" />
                 </div>
-                <p className="text-foreground leading-relaxed flex-1">{tx}</p>
+                <p className="text-foreground leading-relaxed flex-1">
+                  {tx.text}
+                  {tx.link && (
+                    <a href={tx.link.url} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">
+                      {tx.link.label}
+                    </a>
+                  )}
+                  {tx.link && " — a division of OnZinc Africa"}
+                </p>
                 <ArrowUpRight size={18} className="text-muted-foreground group-hover:text-accent transition-colors flex-shrink-0 mt-1" />
               </motion.div>
             ))}
