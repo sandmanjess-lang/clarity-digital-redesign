@@ -90,7 +90,7 @@ const Index = () => {
                   Discover More <ArrowRight className="ml-2" size={18} />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+              <Button asChild size="lg" variant="outline" className="border-white/50 text-white bg-white/10 hover:bg-white/20 hover:text-white">
                 <Link to="/contact">Get in Touch</Link>
               </Button>
             </motion.div>
