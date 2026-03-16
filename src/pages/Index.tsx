@@ -3,15 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp, Handshake, BarChart3, Shield, Users, Globe } from "lucide-react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
-  }),
-};
+import { fadeUp } from "@/lib/animations";
 
 const services = [
   {

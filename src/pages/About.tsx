@@ -1,14 +1,7 @@
 import { motion } from "framer-motion";
 import { Target, Briefcase, Scale, Users, Globe, Shield } from "lucide-react";
 import Layout from "@/components/Layout";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1, y: 0,
-    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" },
-  }),
-};
+import { fadeUp } from "@/lib/animations";
 
 const services = [
   { icon: Briefcase, title: "Capital Raising", desc: "Equity and debt fundraising for growth, expansion, and recapitalisation." },

@@ -1,14 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Layout from "@/components/Layout";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1, y: 0,
-    transition: { delay: i * 0.08, duration: 0.5, ease: "easeOut" },
-  }),
-};
+import { fadeUp } from "@/lib/animations";
 
 const transactions = [
   "Advised on the disposal of a controlling interest in a national facilities management company",
