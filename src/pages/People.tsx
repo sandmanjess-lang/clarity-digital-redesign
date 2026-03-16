@@ -1,14 +1,19 @@
 import { motion } from "framer-motion";
 import { Linkedin, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { fadeUp } from "@/lib/animations";
+import donPhoto from "@/assets/Don_Millar.jpeg";
+import valeciaPhoto from "@/assets/Valecia_van_Rensburg.jpeg";
 
 const team = [
   {
     name: "Don Millar",
     role: "Managing Director",
     initials: "DM",
+    photo: donPhoto,
+    linkedin: "https://www.linkedin.com/in/don-millar-03876412/",
+    email: "don@claritygroup.co.za",
     bio: [
       "Don founded Clarity Group to provide independent corporate finance advice to unlisted corporates and entrepreneurs. He has over 20 years of experience in investment banking and corporate finance.",
       "Prior to founding Clarity, Don held senior positions at leading investment banks including Rand Merchant Bank and BoE (now part of Nedbank Capital), where he was involved in numerous M&A, capital raising, and advisory transactions.",
@@ -19,6 +24,9 @@ const team = [
     name: "Valecia van Rensburg",
     role: "Director",
     initials: "VR",
+    photo: valeciaPhoto,
+    linkedin: "https://www.linkedin.com/in/valecia-van-rensburg-35383621/",
+    email: "valecia@claritygroup.co.za",
     bio: [
       "Valecia joined Clarity Group bringing extensive experience in corporate finance and transaction advisory. She plays a key role in managing client engagements and transaction execution.",
       "Her background includes experience in financial analysis, deal structuring, and project management across a range of corporate finance transactions including M&A, BEE deals, and valuations.",
@@ -68,6 +76,7 @@ const People = () => {
                 <div className="flex flex-col md:flex-row gap-8">
                   <div className="flex-shrink-0 flex flex-col items-center md:items-start gap-4">
                     <Avatar className="w-24 h-24 text-2xl">
+                      <AvatarImage src={member.photo} alt={member.name} className="object-cover" />
                       <AvatarFallback className="gradient-accent text-accent-foreground font-display font-bold text-xl">
                         {member.initials}
                       </AvatarFallback>
@@ -77,12 +86,12 @@ const People = () => {
                       <p className="text-sm text-accent font-medium">{member.role}</p>
                     </div>
                     <div className="flex gap-2">
-                      <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors cursor-pointer">
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors">
                         <Linkedin size={16} />
-                      </div>
-                      <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors cursor-pointer">
+                      </a>
+                      <a href={`mailto:${member.email}`} className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors">
                         <Mail size={16} />
-                      </div>
+                      </a>
                     </div>
                   </div>
                   <div className="flex-1 space-y-4">
