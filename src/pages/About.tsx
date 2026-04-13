@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { Target, Briefcase, Scale, Users, Globe, Shield, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Target, Briefcase, Scale, Users, Globe, Shield, ChevronDown, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import { fadeUp } from "@/lib/animations";
+import { services as sharedServices } from "@/lib/services";
 import SEO, { breadcrumbSchema, faqSchema, serviceSchema } from "@/components/SEO";
 import {
   Accordion,
@@ -10,14 +12,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const services = [
-  { icon: Briefcase, title: "Capital Raising", desc: "Equity and debt fundraising for growth, expansion, and recapitalisation." },
-  { icon: Target, title: "Mergers & Acquisitions", desc: "Buy-side and sell-side advisory for acquisitions, mergers, and disposals." },
-  { icon: Scale, title: "Valuations", desc: "Independent business valuations for transactions, disputes, and compliance." },
-  { icon: Users, title: "BEE Transactions", desc: "Structuring and advising on black economic empowerment transactions." },
-  { icon: Globe, title: "Strategic Consulting", desc: "Strategic review, market analysis, and advisory for corporate decision-making." },
-  { icon: Shield, title: "Management Buy-outs", desc: "Structuring and funding management buy-outs and buy-ins." },
-];
+const services = sharedServices.map((s) => ({
+  icon: s.icon,
+  title: s.title,
+  desc: s.shortDesc,
+  slug: s.slug,
+}));
 
 const faqs = [
   {
@@ -141,12 +141,17 @@ const About = () => {
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s, i) => (
-              <motion.article key={s.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i} className="glass-card p-7">
-                <div className="w-11 h-11 rounded-lg gradient-accent flex items-center justify-center mb-4" aria-hidden="true">
-                  <s.icon size={20} className="text-accent-foreground" />
-                </div>
-                <h3 className="text-lg font-display font-semibold text-foreground mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <motion.article key={s.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}>
+                <Link to={`/services/${s.slug}`} className="glass-card p-7 block h-full hover:shadow-lg transition-all group">
+                  <div className="w-11 h-11 rounded-lg gradient-accent flex items-center justify-center mb-4" aria-hidden="true">
+                    <s.icon size={20} className="text-accent-foreground" />
+                  </div>
+                  <h3 className="text-lg font-display font-semibold text-foreground mb-2">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">{s.desc}</p>
+                  <span className="text-accent text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Learn more <ArrowRight size={14} />
+                  </span>
+                </Link>
               </motion.article>
             ))}
           </div>
