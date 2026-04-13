@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import { fadeUp } from "@/lib/animations";
+import SEO, { breadcrumbSchema } from "@/components/SEO";
 
 interface Transaction {
   text: string;
@@ -26,6 +27,16 @@ const transactions: Transaction[] = [
 const Transactions = () => {
   return (
     <Layout>
+      <SEO
+        title="Selected Transactions — Track Record"
+        description="Explore Clarity Group's track record of 50+ corporate finance transactions valued at over R5 billion. M&A, capital raising, BEE deals, valuations, and management buy-outs across Southern Africa."
+        canonical="/transactions"
+        jsonLd={breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Transactions", url: "/transactions" },
+        ])}
+      />
+
       {/* Hero */}
       <section className="gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 opacity-10"
@@ -48,11 +59,12 @@ const Transactions = () => {
       </section>
 
       {/* Transactions grid */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28" aria-labelledby="transactions-heading">
         <div className="container mx-auto px-6">
+          <h2 id="transactions-heading" className="sr-only">Transaction History</h2>
           <div className="grid md:grid-cols-2 gap-5">
             {transactions.map((tx, i) => (
-              <motion.div
+              <motion.article
                 key={i}
                 initial="hidden"
                 whileInView="visible"
@@ -61,7 +73,7 @@ const Transactions = () => {
                 custom={i}
                 className="glass-card p-6 flex gap-4 items-start group hover:shadow-lg transition-shadow"
               >
-                <div className="flex-shrink-0 mt-1">
+                <div className="flex-shrink-0 mt-1" aria-hidden="true">
                   <div className="w-3 h-3 rounded-full gradient-accent" />
                 </div>
                 <p className="text-foreground leading-relaxed flex-1">
@@ -73,8 +85,8 @@ const Transactions = () => {
                   )}
                   {tx.link && " — a division of OnZinc Africa"}
                 </p>
-                <ArrowUpRight size={18} className="text-muted-foreground group-hover:text-accent transition-colors flex-shrink-0 mt-1" />
-              </motion.div>
+                <ArrowUpRight size={18} className="text-muted-foreground group-hover:text-accent transition-colors flex-shrink-0 mt-1" aria-hidden="true" />
+              </motion.article>
             ))}
           </div>
         </div>
