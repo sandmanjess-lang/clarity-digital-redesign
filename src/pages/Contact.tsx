@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 import { fadeUp } from "@/lib/animations";
+import SEO, { localBusinessSchema, breadcrumbSchema } from "@/components/SEO";
 
 const contactDetails = [
   {
@@ -31,6 +32,19 @@ const contactDetails = [
 const Contact = () => {
   return (
     <Layout>
+      <SEO
+        title="Contact Us — Get in Touch"
+        description="Contact Clarity Group for corporate finance advisory services. Phone: +27 83 450 5566. Email: info@claritygroup.co.za. Office in Illovo, Johannesburg, South Africa."
+        canonical="/contact"
+        jsonLd={[
+          localBusinessSchema,
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Contact", url: "/contact" },
+          ]),
+        ]}
+      />
+
       {/* Hero */}
       <section className="gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 opacity-10"
@@ -53,9 +67,10 @@ const Contact = () => {
       </section>
 
       {/* Contact details */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28" aria-labelledby="contact-details-heading">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
+            <h2 id="contact-details-heading" className="sr-only">Contact Details</h2>
             <div className="grid sm:grid-cols-2 gap-6 mb-12">
               {contactDetails.map((item, i) => (
                 <motion.div
@@ -67,7 +82,7 @@ const Contact = () => {
                   custom={i}
                   className="glass-card p-7 flex gap-5"
                 >
-                  <div className="w-12 h-12 rounded-lg gradient-accent flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-lg gradient-accent flex items-center justify-center flex-shrink-0" aria-hidden="true">
                     <item.icon size={20} className="text-accent-foreground" />
                   </div>
                   <div>
@@ -94,7 +109,7 @@ const Contact = () => {
               className="glass-card overflow-hidden"
             >
               <iframe
-                title="Clarity Group Location"
+                title="Clarity Group Office Location — Illovo, Johannesburg"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.5!2d28.0473!3d-26.1325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zIllovo%2C%20Johannesburg!5e0!3m2!1sen!2sza!4v1"
                 width="100%"
                 height="350"

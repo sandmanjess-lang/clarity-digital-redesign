@@ -3,8 +3,8 @@ import { Linkedin, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { fadeUp } from "@/lib/animations";
+import SEO, { personSchema, breadcrumbSchema } from "@/components/SEO";
 import donPhoto from "@/assets/Don_Millar.jpeg";
-import valeciaPhoto from "@/assets/Valecia_van_Rensburg.jpeg";
 
 const team = [
   {
@@ -25,6 +25,19 @@ const team = [
 const People = () => {
   return (
     <Layout>
+      <SEO
+        title="Our Team — Meet the People Behind Clarity"
+        description="Meet Don Millar, Managing Director of Clarity Group. Over 25 years of investment banking and corporate finance experience. Former Rand Merchant Bank and BoE."
+        canonical="/people"
+        jsonLd={[
+          personSchema,
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "People", url: "/people" },
+          ]),
+        ]}
+      />
+
       {/* Hero */}
       <section className="gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 opacity-10"
@@ -51,7 +64,7 @@ const People = () => {
         <div className="container mx-auto px-6">
           <div className="space-y-12">
             {team.map((member, i) => (
-              <motion.div
+              <motion.article
                 key={member.name}
                 initial="hidden"
                 whileInView="visible"
@@ -63,20 +76,20 @@ const People = () => {
                 <div className="flex flex-col md:flex-row gap-8">
                   <div className="flex-shrink-0 flex flex-col items-center md:items-start gap-4">
                     <Avatar className="w-24 h-24 text-2xl">
-                      <AvatarImage src={member.photo} alt={member.name} className="object-cover" />
+                      <AvatarImage src={member.photo} alt={`${member.name}, ${member.role} at Clarity Group`} className="object-cover" />
                       <AvatarFallback className="gradient-accent text-accent-foreground font-display font-bold text-xl">
                         {member.initials}
                       </AvatarFallback>
                     </Avatar>
                     <div className="text-center md:text-left">
-                      <h3 className="text-xl font-display font-bold text-foreground">{member.name}</h3>
+                      <h2 className="text-xl font-display font-bold text-foreground">{member.name}</h2>
                       <p className="text-sm text-accent font-medium">{member.role}</p>
                     </div>
                     <div className="flex gap-2">
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors">
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on LinkedIn`} className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors">
                         <Linkedin size={16} />
                       </a>
-                      <a href={`mailto:${member.email}`} className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors">
+                      <a href={`mailto:${member.email}`} aria-label={`Email ${member.name}`} className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent/10 transition-colors">
                         <Mail size={16} />
                       </a>
                     </div>
@@ -89,7 +102,7 @@ const People = () => {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>
