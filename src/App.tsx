@@ -9,6 +9,13 @@ import About from "./pages/About.tsx";
 import People from "./pages/People.tsx";
 import Transactions from "./pages/Transactions.tsx";
 import Contact from "./pages/Contact.tsx";
+import ContactSuccess from "./pages/ContactSuccess.tsx";
+import CapitalRaising from "./pages/services/CapitalRaising.tsx";
+import MergersAcquisitions from "./pages/services/MergersAcquisitions.tsx";
+import Valuations from "./pages/services/Valuations.tsx";
+import BeeTransactions from "./pages/services/BeeTransactions.tsx";
+import StrategicConsulting from "./pages/services/StrategicConsulting.tsx";
+import ManagementBuyOuts from "./pages/services/ManagementBuyOuts.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,6 +33,13 @@ const App = () => (
             <Route path="/people" element={<People />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/contact/success" element={<ContactSuccess />} />
+            <Route path="/services/capital-raising" element={<CapitalRaising />} />
+            <Route path="/services/mergers-and-acquisitions" element={<MergersAcquisitions />} />
+            <Route path="/services/valuations" element={<Valuations />} />
+            <Route path="/services/bee-transactions" element={<BeeTransactions />} />
+            <Route path="/services/strategic-consulting" element={<StrategicConsulting />} />
+            <Route path="/services/management-buy-outs" element={<ManagementBuyOuts />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

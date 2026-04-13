@@ -5,24 +5,7 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { fadeUp } from "@/lib/animations";
 import SEO, { organizationSchema, websiteSchema, localBusinessSchema } from "@/components/SEO";
-
-const services = [
-  {
-    icon: Handshake,
-    title: "Mergers & Acquisitions",
-    description: "Strategic advisory for acquisitions, disposals, and management buy-outs across diverse sectors.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Capital Raising",
-    description: "Equity and debt capital raising solutions tailored to your business growth objectives.",
-  },
-  {
-    icon: BarChart3,
-    title: "Valuations",
-    description: "Independent business valuations for transactions, disputes, and regulatory compliance.",
-  },
-];
+import { services } from "@/lib/services";
 
 const differentiators = [
   {
@@ -60,35 +43,16 @@ const Index = () => {
           }}
         />
         <div className="container mx-auto px-6 py-28 md:py-40 relative z-10">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            className="max-w-3xl"
-          >
-            <motion.p
-              variants={fadeUp}
-              custom={0}
-              className="text-sm font-medium tracking-widest uppercase mb-4"
-              style={{ color: "hsl(85, 62%, 50%)" }}
-            >
+          <motion.div initial="hidden" animate="visible" className="max-w-3xl">
+            <motion.p variants={fadeUp} custom={0} className="text-sm font-medium tracking-widest uppercase mb-4" style={{ color: "hsl(85, 62%, 50%)" }}>
               Corporate Finance Advisory
             </motion.p>
-            <motion.h1
-              variants={fadeUp}
-              custom={1}
-              className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6"
-              style={{ color: "hsl(0, 0%, 100%)" }}
-            >
+            <motion.h1 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6" style={{ color: "hsl(0, 0%, 100%)" }}>
               Investment &{" "}
               <span className="text-gradient">Corporate Finance</span>{" "}
               Solutions
             </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              custom={2}
-              className="text-lg md:text-xl leading-relaxed mb-8 max-w-2xl"
-              style={{ color: "hsla(0, 0%, 100%, 0.75)" }}
-            >
+            <motion.p variants={fadeUp} custom={2} className="text-lg md:text-xl leading-relaxed mb-8 max-w-2xl" style={{ color: "hsla(0, 0%, 100%, 0.75)" }}>
               Clarity Group provides independent, specialised corporate finance advice
               to unlisted corporates and entrepreneurs across Southern Africa.
             </motion.p>
@@ -110,7 +74,7 @@ const Index = () => {
       </section>
 
       {/* Services */}
-      <section className="py-20 md:py-28" aria-labelledby="services-heading">
+      <section className="py-20 md:py-28" id="services" aria-labelledby="services-heading">
         <div className="container mx-auto px-6">
           <motion.div
             initial="hidden"
@@ -126,7 +90,7 @@ const Index = () => {
             </motion.h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, i) => (
               <motion.article
                 key={service.title}
@@ -135,17 +99,24 @@ const Index = () => {
                 viewport={{ once: true, margin: "-60px" }}
                 variants={fadeUp}
                 custom={i}
-                className="glass-card p-8 hover:shadow-lg transition-shadow group"
               >
-                <div className="w-12 h-12 rounded-lg gradient-accent flex items-center justify-center mb-5" aria-hidden="true">
-                  <service.icon size={22} className="text-accent-foreground" />
-                </div>
-                <h3 className="text-xl font-display font-semibold text-foreground mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="glass-card p-8 hover:shadow-lg transition-all group block h-full"
+                >
+                  <div className="w-12 h-12 rounded-lg gradient-accent flex items-center justify-center mb-5" aria-hidden="true">
+                    <service.icon size={22} className="text-accent-foreground" />
+                  </div>
+                  <h3 className="text-xl font-display font-semibold text-foreground mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    {service.shortDesc}
+                  </p>
+                  <span className="text-accent text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Learn more <ArrowRight size={14} />
+                  </span>
+                </Link>
               </motion.article>
             ))}
           </div>
@@ -196,26 +167,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About summary for SEO/GEO — crawlable rich content */}
+      {/* About summary for SEO/GEO */}
       <section className="py-16 md:py-20" aria-labelledby="about-summary-heading">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="text-center mb-10"
-            >
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-10">
               <motion.h2 variants={fadeUp} custom={0} id="about-summary-heading" className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
                 About Clarity Group
               </motion.h2>
             </motion.div>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="space-y-4 text-muted-foreground leading-relaxed"
-            >
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4 text-muted-foreground leading-relaxed">
               <motion.p variants={fadeUp} custom={0}>
                 Clarity Group is a boutique corporate finance advisory firm headquartered in Illovo, Johannesburg, South Africa. Founded by Don Millar — a qualified Chartered Accountant (CA(SA)) with over 25 years of investment banking experience — the firm provides independent, conflict-free advice to unlisted corporates and entrepreneurs throughout Southern Africa.
               </motion.p>
@@ -245,20 +206,10 @@ const Index = () => {
               }}
             />
             <div className="relative z-10">
-              <motion.h2
-                variants={fadeUp}
-                custom={0}
-                className="text-3xl md:text-4xl font-display font-bold mb-4"
-                style={{ color: "hsl(0, 0%, 100%)" }}
-              >
+              <motion.h2 variants={fadeUp} custom={0} className="text-3xl md:text-4xl font-display font-bold mb-4" style={{ color: "hsl(0, 0%, 100%)" }}>
                 Ready to discuss your next transaction?
               </motion.h2>
-              <motion.p
-                variants={fadeUp}
-                custom={1}
-                className="text-lg mb-8 max-w-xl mx-auto"
-                style={{ color: "hsla(0, 0%, 100%, 0.75)" }}
-              >
+              <motion.p variants={fadeUp} custom={1} className="text-lg mb-8 max-w-xl mx-auto" style={{ color: "hsla(0, 0%, 100%, 0.75)" }}>
                 Let our experienced team help you navigate your corporate finance needs with clarity and confidence.
               </motion.p>
               <motion.div variants={fadeUp} custom={2}>
