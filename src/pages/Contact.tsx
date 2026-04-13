@@ -173,7 +173,7 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <h2 id="contact-details-heading" className="sr-only">Contact Details</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="grid sm:grid-cols-2 gap-6 mb-16">
               {contactDetails.map((item, i) => (
                 <motion.div
                   key={item.label}
